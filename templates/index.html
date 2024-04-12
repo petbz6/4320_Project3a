@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Visualizer</title>
+</head>
+<body>
+    <!-- Header -->
+    <h1 style="text-align: center;">Stock Data Visualizer</h1> 
+    <form method="POST"> 
+        <!-- Dropdown box to select a stock symbol -->
+        <label for="stock_symbol">Choose Symbol: </label>
+        <select id="stock_symbol" name="stock_symbol" required>
+            <option value="" disabled selected >Select a Symbol</option>
+            {% for symbol in stock_symbols %}
+                <option value="{{ symbol }}">{{ symbol }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+
+        <!-- Dropdown box to select chart type -->
+        <label for="chart_type">Choose Chart Type: </label> 
+        <select id="chart_type" name="chart_type">
+            <option value="" disabled selected >Select a Chart Type</option> 
+            <option value="1">Line Chart</option> 
+            <option value="2">Bar Chart</option> 
+        </select><br><br>
+        
+        <!-- Dropdown box to select time series -->
+        <label for="time_series">Time Series: </label> 
+        <select id="time_series" name="time_series"> 
+            <option value="" disabled selected >Select a Time Series</option> 
+            <option value="1">Intraday</option> 
+            <option value="2">Daily</option> 
+            <option value="3">Weekly</option> 
+            <option value="4">Monthly</option> 
+        </select><br><br>
+        
+        <!-- Start date input -->
+        <label for="start" >Start Date: </label> 
+        <input type="date" id="start" name="start" required><br><br> <!-- Date Picker -->
+        
+        <!-- End date input-->
+        <label for="end">End Date: </label>
+        <input type="date" id="end" name="end" required><br><br> <!-- Date Picker -->
+        
+        <!-- Submit button -->
+        <input type="submit" value="Submit"> 
+    </form>
+</body>
+</html>
